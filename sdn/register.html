@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SDN Hackfest | Login</title>
+    <title>SDN Hackfest | Sign Up</title>
     <link rel="shortcut icon" type="image/x-icon" href="dist/img/favicon.ico"/>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -229,7 +229,7 @@
 
 <div class="login-box" id="login_box">
     <div class="login-box-body">
-        <p class="login-box-msg"><img src="dist/img/logo.png"></p>
+        <p class="login-box-msg"><img src="dist/img/logo.png"> <h2>Register</h2></p>
 
         <form action="" method="post">
 
@@ -237,40 +237,33 @@
                 <span id="error"></span>
             </div>
 
+
             <div class="form-group has-feedback">
-                <input type="text" name="username" id="username" class="form-control"
+                <input type="text" name="email" id="email" class="form-control"
                        onkeypress="if(event.keyCode==13) { login_process(); }">
-                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
                 <input type="password" class="form-control" name="password" id="password"
                        onkeypress="if(event.keyCode==13) { login_process(); }">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
+
             <div class="row">
-                <div class="col-xs-4">
 
-
-                </div>
 
                 <div class="col-xs-4">
-
                     <button type="button" class="btn btn-primary btn-block btn-flat" onclick="return login_process()">
-                        Sign In
+                        Sign Up
                     </button>
                 </div>
 
-                <div class="col-xs-4">
-                    <a href="register.html">
-                        <button type="button" class="btn btn-primary btn-block btn-flat" >
-                        New User ?
-                    </button>
-                    </a>
-
+                <div class="col-xs-2">
 
                 </div>
-
-
+                <div class="col-xs-6">
+                    <a href="index.html">Already Have an Account?</a>
+                </div>
 
             </div>
         </form>
