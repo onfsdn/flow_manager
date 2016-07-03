@@ -12,28 +12,14 @@
                     <h3 class="box-title">Flows</h3>
                 </div>
                 <div class="box-body">
-
-                    <span ng-repeat="f in flow_info">
-                    <a class="btn btn-app"  ui-sref="sdn_flow_info({flow_id:f})">
-                        {{f}}
-                    </a>
-                </span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row" ng-show="false">
-        <div class="col-md-12">
-            <div class="box box-info">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Flows</h3>
-                </div>
-                <div class="box-body">
+                    <a ui-sref="sdn_switch_info({switch_id:switch_detail})"><img src="dist/img/sw.png" height="100px" witdh="100px" data-toggle="tooltip" title="{{switch_detail}}"></a>
 
 
-                    <div id="visulization"></div>
-
-                </span>
+                    <!--<span ng-repeat="f in flow_info">-->
+                    <!--<a class="btn btn-app"  ui-sref="sdn_flow_info({flow_id:f})">-->
+                        <!--{{f}}-->
+                    <!--</a>-->
+                <!--</span>-->
                 </div>
             </div>
         </div>

@@ -1,17 +1,11 @@
 window[appName].controller('sdn_home_controller',function($rootScope,$scope,$state,$stateParams,$http,$window,$location,$q,$filter)	{
 
 	console.log("Called");
-	console.log($scope.logged_in);
+
 	if($scope.logged_in==undefined || $scope.logged_in=="")
 	{
 		window.location = "index.html";
 	}
-
-
-
-	//Constants for the SVG
-
-
 
 	function HttpRequest(method,action, URL, parameter) {
 
@@ -37,22 +31,23 @@ window[appName].controller('sdn_home_controller',function($rootScope,$scope,$sta
 		switch (action) {
 
 
+			case 'get_switch':
+
+				$scope.switch_detail = response["rows"][1]["id"];
+
+				break;
+
 			case 'get_switch_info':
 				$scope.switch_info = response;
-				$scope.flow_info = response["rows"][0]["value"]["flows"]
+				$scope.flow_info = response["rows"];
+				console.log($scope.flow_info);
 				break;
-
-			case 'getdocs':
-
-				$scope.mesh_data = response;
-
-				break;
-
 		}
 
 	}
 
-	HttpRequest('get','getdocs',window.flaskURL+'getdocs','');
+	HttpRequest('get','get_switch',window.flaskURL+'get_switch','');
+
 	HttpRequest('get','get_switch_info',window.flaskURL+'get_switch_info','');
 	//HttpRequest('get','get_flow',window.flaskURL+'get_all_flows','');
 
