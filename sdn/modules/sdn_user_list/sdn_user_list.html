@@ -1,0 +1,48 @@
+<section class="content-header bread">
+    <ol class="breadcrumb">
+        <li class="active" ui-sref="sdn_home">List User</li>
+        <li>Users</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Users</h3>
+                </div>
+
+                <div class="box-body">
+
+
+                    <table class="table table-bordered">
+                        <tbody>
+                        <tr>
+                            <th style="width: 10px">#</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th ng-if="role=='1'">Action</th>
+                        </tr>
+                        <tr ng-repeat="k in user_list track by $index">
+                            <td>{{$index+1}}</td>
+                            <td>{{k.value.username}}</td>
+                            <td ng-if="k.value.role=='1'">Admin (Full Access)</td>
+                            <td ng-if="k.value.role=='2'">User (View Access)</td>
+                            <td ng-if="role=='1'"><span ng-click="flow_delete(k.value._id,k.value._rev)"><i class="fa fa-fw fa-remove" style="cursor:pointer;"></i></span></td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+
+
+
+                    <!--<span ng-repeat="f in flow_info">-->
+                    <!--<a class="btn btn-app"  ui-sref="sdn_flow_info({flow_id:f})">-->
+                    <!--{{f}}-->
+                    <!--</a>-->
+                    <!--</span>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

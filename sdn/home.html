@@ -67,7 +67,7 @@
 
     <script type="text/javascript" src="modules/sdn_register/sdn_register_controller.js"></script>
 
-
+    <script type="text/javascript" src="modules/sdn_user_list/sdn_user_list_controller.js"></script>
 
 
     <script type="text/javascript" src="plugins/select2/select2.full.min.js"></script>
@@ -133,6 +133,10 @@
                     <ul class="treeview-menu" style="display:block;">
                         <li class="treeview" ng-class="{active: navigation.menu_item == 'sdn_register'}">
                             <a ui-sref="sdn_register"> <i class="fa fa-circle-o"></i> <span>Add User</span></a>
+                        </li>
+
+                        <li class="treeview" ng-class="{active: navigation.menu_item == 'sdn_user_list'}">
+                            <a ui-sref="sdn_user_list"> <i class="fa fa-circle-o"></i> <span>List User</span></a>
                         </li>
                     </ul>
                 </li>

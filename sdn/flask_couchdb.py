@@ -70,6 +70,18 @@ def auth():
 	return json.dumps(output)
 
 
+
+@app.route('/get_all_users', methods=['GET', 'POST', 'OPTIONS'])
+@cross_origin()
+def get_all_users():
+	output = {}
+	tmp_list = []
+	flows_url = "http://172.16.0.6:5984/user/_design/user/_view/user"
+	r = requests.get(flows_url)
+	flow_info =  json.loads(r.text)
+	return json.dumps(flow_info)
+
+
 @app.route('/get_switch_info', methods=['GET', 'POST', 'OPTIONS'])
 @cross_origin()
 def get_switch_info():
@@ -102,10 +114,21 @@ def delete_flow():
 		id = json_data.get("id", "")
 		rev = json_data.get("rev", "")
 		del_id = "http://172.16.0.6:5984/flows_bak_0/"+id+"?rev="+rev
-		print del_id
 		r = requests.delete(del_id)
 		flow_info =  json.loads(r.text)
-		print id,rev
+		return json.dumps(flow_info)
+
+@app.route('/delete_user', methods=['GET', 'POST', 'OPTIONS'])
+@cross_origin()
+def delete_user():
+	output = {}
+	if request.method == 'POST':
+		json_data = request.get_json()
+		id = json_data.get("id", "")
+		rev = json_data.get("rev", "")
+		del_id = "http://172.16.0.6:5984/user/"+id+"?rev="+rev
+		r = requests.delete(del_id)
+		flow_info =  json.loads(r.text)
 		return json.dumps(flow_info)
 
 @app.route('/get_all_flows', methods=['GET', 'POST', 'OPTIONS'])

@@ -44,6 +44,13 @@ window[appName].config(function ($stateProvider, $urlRouterProvider, $httpProvid
             controller: 'sdn_register_controller',
         });
 
+    $stateProvider
+        .state('sdn_user_list', {
+            url: '/sdn_user_list',
+            templateUrl: 'modules/sdn_user_list/sdn_user_list.html',
+            controller: 'sdn_user_list_controller',
+        });
+
 
 
 });
