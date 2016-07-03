@@ -39,6 +39,8 @@ window[appName].controller('sdn_home_controller',function($rootScope,$scope,$sta
 
 
 
+
+
 				$(function (response) {
 
 					//root = $scope.mesh_data
@@ -105,20 +107,10 @@ window[appName].controller('sdn_home_controller',function($rootScope,$scope,$sta
 					var trans=[10,10];
 					var scale=1;
 
-					var root=response;
+					var root={"root_node":{"name":"Root","children":[{"name":"child1"},{"name":"child1"}]}};
 					filename="";
 
-					//d3.json(filename, function(){
-					//	root = $scope.mesh_data;
-					//	root.fixed = true;
-					//	root.x = w / 2;
-					//	root.y = h / 2;
-						//g.data = root;
-						//g.data = data;
-					//	update();
-					//});
 
-					//var root = response;
 					update();
 
 					function redraw() {
@@ -172,7 +164,7 @@ window[appName].controller('sdn_home_controller',function($rootScope,$scope,$sta
 							.style("fill", color);
 
 						node.transition()
-							.attr("r", function(d) { return ((d.children && d.children!='')||d["Mesh Role"]=="ROOT AP")  ? 10 : 7; });
+							.attr("r", function(d) { return (d.children && d.children!='')  ? 10 : 7; });
 
 
 						// Enter any new nodes.
@@ -207,8 +199,8 @@ window[appName].controller('sdn_home_controller',function($rootScope,$scope,$sta
 						var nodes = [], i = 0;
 
 						function recurse(node) {
+							console.log(node);
 							if (node.children) node.size = node.children.reduce(function(p, v) {
-								//model=v["Model/Serial Num"] temp=model.split("\/");
 								return p + recurse(v); }, 0);
 							if (!node.id) node.id = ++i;
 							nodes.push(node);
