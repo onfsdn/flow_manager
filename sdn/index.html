@@ -178,6 +178,8 @@
 
                         sessionStorage.setItem("uid", obj.uid);
 
+                        sessionStorage.setItem("role", obj.role);
+
                         window.location = "home.html";
 
                     } else {
@@ -248,7 +250,7 @@
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">
-                <div class="col-xs-4">
+                <div class="col-xs-8">
 
 
                 </div>
@@ -258,16 +260,6 @@
                     <button type="button" class="btn btn-primary btn-block btn-flat" onclick="return login_process()">
                         Sign In
                     </button>
-                </div>
-
-                <div class="col-xs-4">
-                    <a href="register.html">
-                        <button type="button" class="btn btn-primary btn-block btn-flat" >
-                        New User ?
-                    </button>
-                    </a>
-
-
                 </div>
 
 

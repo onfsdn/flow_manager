@@ -1,0 +1,76 @@
+<section class="content-header bread">
+    <ol class="breadcrumb">
+        <li class="active" ui-sref="sdn_home">User Management</li>
+        <li>Add User</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Add User</h3>
+                </div>
+
+                <div class="box-body">
+
+                    <form class="form-horizontal" name="regsiter_user" id="regsiter_user">
+              <div class="box-body">
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="inputEmail3">Email</label>
+                  <div class="col-sm-4">
+                    <input type="email"  id="username" name="username" ng-model="username" class="form-control" value-patterns="required" validate-on-change="true">
+                  </div>
+                    <div ng-show="regsiter_user.username.$error.required"
+                                 class="col-sm-3 form-group has-error ng-hide">
+                                <label for="inputError" class="control-label"> <i class="fa fa-times-circle-o"></i>
+                                    Enter the Email Address</label>
+                            </div>
+
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="inputPassword3">Password</label>
+                  <div class="col-sm-4">
+                    <input type="password"  id="password" name="password" ng-model="password" class="form-control" value-patterns="required" validate-on-change="true">
+                  </div>
+
+                    <div ng-show="regsiter_user.password.$error.required"
+                                 class="col-sm-3 form-group has-error ng-hide">
+                                <label for="inputError" class="control-label"> <i class="fa fa-times-circle-o"></i>
+                                    Enter the Password</label>
+                            </div>
+
+                </div>
+
+                   <div class="form-group">
+                  <label class="col-sm-2 control-label" for="inputPassword3">Role</label>
+                  <div class="col-sm-4">
+                    <select class="form-control" id="role" name="role" ng-model="role" value-patterns="required" validate-on-change="true">
+                       <option value="">--Select the Role---</option>
+                    <option value="1">Admin (Full - Access)</option>
+                        <option value="2">User (View - Access)</option>
+                  </select>
+                  </div>
+
+                       <div ng-show="regsiter_user.role.$error.required"
+                                 class="col-sm-3 form-group has-error ng-hide">
+                                <label for="inputError" class="control-label"> <i class="fa fa-times-circle-o"></i>
+                                    Select the Role</label>
+                            </div>
+
+                </div>
+
+              </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+
+                <button class="btn btn-info" type="submit" ng-click="user_register()">Add User</button>
+              </div>
+              <!-- /.box-footer -->
+            </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -30,6 +30,21 @@ window[appName].config(function ($stateProvider, $urlRouterProvider, $httpProvid
             controller: 'sdn_flow_info_controller',
         });
 
+    $stateProvider
+        .state('sdn_switch_info', {
+            url: '/sdn_switch_info',
+            templateUrl: 'modules/sdn_switch_info/sdn_switch_info.html',
+            controller: 'sdn_switch_info_controller',
+        });
+
+     $stateProvider
+        .state('sdn_register', {
+            url: '/sdn_register',
+            templateUrl: 'modules/sdn_register/sdn_register.html',
+            controller: 'sdn_register_controller',
+        });
+
+
 
 });
 
@@ -108,6 +123,8 @@ window[appName].controller('sdn_controller', function ($rootScope, $scope, $stat
     $scope.previous_year = parseInt($scope.current_year) - 1;
 
     $scope.logged_in = sessionStorage.getItem("name");
+
+    $scope.role = sessionStorage.getItem("role");
 
     $rootScope.navigation = {};
 

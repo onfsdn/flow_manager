@@ -19,6 +19,10 @@ body {
 	overflow-x:hidden;
 	overflow-y:auto
 }
+
+.bootbox {
+	padding:220px;
+}
 .wrapper {
 	min-height:100%;
 	position:relative;

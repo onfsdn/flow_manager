@@ -40,7 +40,6 @@ window[appName].controller('sdn_home_controller',function($rootScope,$scope,$sta
 			case 'get_switch_info':
 				$scope.switch_info = response;
 				$scope.flow_info = response["rows"];
-				console.log($scope.flow_info);
 				break;
 		}
 

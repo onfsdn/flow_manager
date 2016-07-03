@@ -1,0 +1,62 @@
+<section class="content-header bread">
+    <ol class="breadcrumb">
+        <li class="active" ui-sref="sdn_home">FLow Management</li>
+        <li>Flows</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Flows</h3>
+                    <div class="pull-right"><div class="input-group col-xs-16">
+
+                <input type="text" class="form-control" ng-model="searchText">
+                         <div class="input-group-btn">
+                  <button class="btn btn-info" type="button">Search</button>
+                </div>
+              </div></div>
+                </div>
+
+                <div class="box-body">
+
+
+                    <table class="table table-bordered">
+                        <tbody>
+                        <tr>
+                            <th style="width: 10px">#</th>
+                            <th>Command</th>
+                            <th>out_group</th>
+                            <th>Type</th>
+                            <th>out_port</th>
+                            <th>Idle Timeout</th>
+                            <th>OFPMatch</th>
+                            <th ng-if="role=='1'">Action</th>
+                        </tr>
+                        <tr ng-repeat="k in switch_info['rows'] | filter:searchText track by $index">
+                            <td>{{$index+1}}</td>
+                            <td>{{k.value.data.OFPFlowMod.command}}</td>
+                             <td>{{k.value.data.OFPFlowMod.out_group}}</td>
+                            <td>{{k.value.data.OFPFlowMod.match.OFPMatch.type}}</td>
+                            <td>{{k.value.data.OFPFlowMod.out_port}}</td>
+                            <td>{{k.value.data.OFPFlowMod.idle_timeout}}</td>
+                            <td>{{k.value.data.OFPFlowMod.match.OFPMatch}}</td>
+                            <td ng-if="role=='1'"><span ng-click="flow_delete(k.value._id,k.value._rev)"><i class="fa fa-fw fa-remove" style="cursor:pointer;"></i></span></td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+
+
+
+                    <!--<span ng-repeat="f in flow_info">-->
+                    <!--<a class="btn btn-app"  ui-sref="sdn_flow_info({flow_id:f})">-->
+                    <!--{{f}}-->
+                    <!--</a>-->
+                    <!--</span>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
