@@ -2,6 +2,11 @@ window[appName].controller('sdn_switch_info_controller',function($rootScope,$sco
 
 	console.log("Called");
 
+	if($scope.logged_in==undefined || $scope.logged_in=="")
+	{
+		window.location = "index.html";
+	}
+
 	function HttpRequest(method,action, URL, parameter) {
 
 		$rootScope.showLoader = true;

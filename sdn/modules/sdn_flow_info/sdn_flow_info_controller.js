@@ -2,6 +2,11 @@ window[appName].controller('sdn_flow_info_controller',function($rootScope,$scope
 
 	 $scope.flow_id = $stateParams.flow_id;
 
+	if($scope.logged_in==undefined || $scope.logged_in=="")
+	{
+		window.location = "index.html";
+	}
+
 	var param = {"flow_id":$scope.flow_id};
 
 	function HttpRequest(method,action, URL, parameter) {

@@ -1,6 +1,10 @@
 window[appName].controller('sdn_user_list_controller',function($rootScope,$scope,$state,$stateParams,$http,$window,$location,$q,$filter)	{
 
 	console.log("Called");
+	if($scope.logged_in==undefined || $scope.logged_in=="")
+	{
+		window.location = "index.html";
+	}
 
 	function HttpRequest(method,action, URL, parameter) {
 
