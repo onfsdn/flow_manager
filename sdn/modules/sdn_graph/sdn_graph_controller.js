@@ -273,7 +273,7 @@ window[appName].controller('sdn_graph_controller', function ($rootScope, $scope,
         table_text = table_text + "<tr><td>out_group<td></td><td>"+k.data.OFPFlowMod.out_group+"</td></tr>";
         table_text = table_text + "<tr><td>out_port<td></td><td>"+k.data.OFPFlowMod.out_port+"</td></tr>";
         table_text = table_text + "<tr><td>idle_timeout<td></td><td>"+k.data.OFPFlowMod.idle_timeout+"</td></tr>";
-        table_text = table_text + "<tr><td>OFPMatch<td></td><td>"+k.data.OFPFlowMod.match.OFPMatch+"</td></tr>";
+        table_text = table_text + "<tr><td>OFPMatch<td></td><td>"+k.data.OFPFlowMod.match.OFPMatch.toSource()+"</td></tr>";
         table_text = table_text + "<tr><td>type<td></td><td>"+k.data.OFPFlowMod.match.OFPMatch.type+"</td></tr>";
         table_text = table_text + "</table>";
         return table_text;
