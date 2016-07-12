@@ -22,6 +22,13 @@ window[appName].config(function ($stateProvider, $urlRouterProvider, $httpProvid
             controller: 'sdn_home_controller',
         });
 
+    $stateProvider
+        .state('sdn_graph', {
+            url: '/sdn_graph',
+            templateUrl: 'modules/sdn_graph/sdn_graph.html',
+            controller: 'sdn_graph_controller',
+        });
+
 
     $stateProvider
         .state('sdn_flow_info', {

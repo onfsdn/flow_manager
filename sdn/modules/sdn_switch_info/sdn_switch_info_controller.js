@@ -6,6 +6,10 @@ window[appName].controller('sdn_switch_info_controller',function($rootScope,$sco
 	{
 		window.location = "index.html";
 	}
+	
+	$scope.itemperpage = 10;
+	$scope.sw_pagination = {};
+	$scope.sw_pagination.current = 1;
 
 	function HttpRequest(method,action, URL, parameter) {
 
@@ -42,6 +46,7 @@ window[appName].controller('sdn_switch_info_controller',function($rootScope,$sco
 				break;
 
 			case 'get_switch_info':
+				
 				$scope.switch_info = response;
 				$scope.flow_info = response["rows"][1]["value"]["data"]["flows"];
 				break;
@@ -70,12 +75,27 @@ window[appName].controller('sdn_switch_info_controller',function($rootScope,$sco
         });
 
 	}
+	$scope.itemperpage = 10;
+	$scope.sw_pagination = {};
+	$scope.sw_pagination.current = 1;
+	$scope.switch_post=function()
+	{
+		param = { "page" : $scope.sw_pagination.current, "size": $scope.itemperpage }
+		HttpRequest('post','get_switch_info',window.flaskURL+'get_switch_info',param);	
+	}
+	$scope.sw_pageChanged = function (pagenumber)
+	{
+		$scope.sw_pagination.current = pagenumber;
+		$scope.switch_post();
+
+	}
+	$scope.switch_post();
 
 	//HttpRequest('get','getdocs',window.flaskURL+'getdocs','');
 
 	//HttpRequest('get','get_switch',window.flaskURL+'get_switch','');
 
-	HttpRequest('get','get_switch_info',window.flaskURL+'get_switch_info','');
+	//HttpRequest('get','get_switch_info',window.flaskURL+'get_switch_info','');
 	//HttpRequest('get','get_all_flows',window.flaskURL+'get_all_flows','');
 
 });

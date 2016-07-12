@@ -34,7 +34,12 @@
                             <th>OFPMatch</th>
                             <th ng-if="role=='1'">Action</th>
                         </tr>
-                        <tr ng-repeat="k in switch_info['rows'] | filter:searchText track by $index">
+			<tr
+                                        dir-paginate="k in switch_info['rows']  | itemsPerPage: itemperpage | filter:searchText track by $index"
+                                        total-items=950
+                                        current-page="sw_pagination.current"
+                                        pagination-id="switch_paginations">
+                        <!--<tr ng-repeat="k in switch_info['rows'] | filter:searchText track by $index"> -->
                             <td>{{$index+1}}</td>
                             <td>{{k.value.data.OFPFlowMod.command}}</td>
                              <td>{{k.value.data.OFPFlowMod.out_group}}</td>
@@ -56,6 +61,17 @@
                     <!--</a>-->
                     <!--</span>-->
                 </div>
+		<div class="box-footer clearfix">
+
+                            <dir-pagination-controls
+                                    boundary-links="true"
+                                    on-page-change="sw_pageChanged(newPageNumber)"
+                                    pagination-id="switch_paginations"
+                                    template-url="factory/dirPagination.tpl.html">
+                            </dir-pagination-controls>
+
+
+                  </div>
             </div>
         </div>
     </div>

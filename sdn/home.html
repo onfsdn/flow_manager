@@ -36,7 +36,7 @@
     <script type="text/javascript" src="dist/js/demo.js"></script>
     <script type="text/javascript" src="dist/js/spinners/spinners.min.js"></script>
     <script type="text/javascript" src="dist/js/lightview/lightview.js"></script>
-
+    <script type="text/javascript" src="dist/js/dirPagination.js"></script>
     <script type="text/javascript" src="dist/js/bootbox.min.js"></script>
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
@@ -61,6 +61,8 @@
     
     <script type="text/javascript" src="modules/sdn_home/sdn_home_controller.js"></script>
 
+    <script type="text/javascript" src="modules/sdn_graph/sdn_graph_controller.js"></script>
+
     <script type="text/javascript" src="modules/sdn_flow_info/sdn_flow_info_controller.js"></script>
 
     <script type="text/javascript" src="modules/sdn_switch_info/sdn_switch_info_controller.js"></script>
@@ -68,6 +70,11 @@
     <script type="text/javascript" src="modules/sdn_register/sdn_register_controller.js"></script>
 
     <script type="text/javascript" src="modules/sdn_user_list/sdn_user_list_controller.js"></script>
+
+ <script type="text/javascript" src="d3/d3.js"></script>
+    <script type="text/javascript" src="d3/d3.geom.js"></script>
+    <script type="text/javascript" src="d3/d3.layout.js"></script>
+        <script type="text/javascript" src="d3/CodeFlower.js"></script>
 
 
     <script type="text/javascript" src="plugins/select2/select2.full.min.js"></script>
@@ -125,6 +132,10 @@
                         <li class="treeview" ng-class="{active: navigation.menu_item == 'sdn_home'}">
                             <a ui-sref="sdn_home"> <i class="fa fa-circle-o"></i> <span>Flows</span></a>
                         </li>
+			<li class="treeview" ng-class="{active: navigation.menu_item == 'sdn_graph'}">
+                            <a ui-sref="sdn_graph"> <i class="fa fa-circle-o"></i> <span>Flows Graph</span></a>
+                        </li>
+
                     </ul>
                 </li>
 

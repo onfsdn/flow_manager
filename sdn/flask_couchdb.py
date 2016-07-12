@@ -50,7 +50,7 @@ def auth():
 		username = request.form['username']
 		password = request.form['password']
 		login_url = rest_url + "user/_all_docs"
-		test = requests.get("http://172.16.0.6:5984/user/_design/user/_view/user")
+		test = requests.get("http://localhost:5984/user/_design/user/_view/user")
 		user_data =  json.loads(test.text)
 		for i in user_data["rows"]:
 			tmp_user = i["value"]["username"]
@@ -67,6 +67,7 @@ def auth():
 				break;
 			else:
 				output['status'] = "1"
+        print output
 	return json.dumps(output)
 
 
@@ -76,18 +77,36 @@ def auth():
 def get_all_users():
 	output = {}
 	tmp_list = []
-	flows_url = "http://172.16.0.6:5984/user/_design/user/_view/user"
+	flows_url = "http://localhost:5984/user/_design/user/_view/user"
 	r = requests.get(flows_url)
 	flow_info =  json.loads(r.text)
 	return json.dumps(flow_info)
 
+@app.route('/get_toplogy', methods=['GET', 'POST', 'OPTIONS'])
+@cross_origin()
+def get_topology():
+        output = {}
+        tmp_list = []
+        flows_url = "http://localhost:5984/flows_bak/_design/flows/_view/flow?limit=100"
+        r = requests.get(flows_url)
+        flow_info =  json.loads(r.text)
+        return json.dumps(flow_info)
 
 @app.route('/get_switch_info', methods=['GET', 'POST', 'OPTIONS'])
 @cross_origin()
 def get_switch_info():
 	output = {}
 	tmp_list = []
-	flows_url = "http://172.16.0.6:5984/flows_bak_0/_design/flows/_view/flow?limit=100"
+	page = 1;
+	page_size = 10;
+	if request.method == 'POST':
+		json_data = request.get_json()
+                page = json_data.get("page", 1)
+		page_size = json_data.get("size", 10)
+	start = page_size*page
+	start = start +1
+	flows_url = "http://localhost:5984/flows_bak/_design/flows/_view/flow?skip="+str(start)+"&limit="+str(page_size)
+	print flows_url
 	r = requests.get(flows_url)
 	flow_info =  json.loads(r.text)
 	return json.dumps(flow_info)
@@ -99,7 +118,7 @@ def get_switch_info():
 def get_switch():
 	output = {}
 	tmp_list = []
-	flows_url = "http://172.16.0.6:5984/switches_bak_0/_all_docs"
+	flows_url = "http://localhost:5984/switches_bak/_all_docs"
 	r = requests.get(flows_url)
 	flow_info =  json.loads(r.text)
 	return json.dumps(flow_info)
@@ -113,7 +132,7 @@ def delete_flow():
 		json_data = request.get_json()
 		id = json_data.get("id", "")
 		rev = json_data.get("rev", "")
-		del_id = "http://172.16.0.6:5984/flows_bak_0/"+id+"?rev="+rev
+		del_id = "http://localhost:5984/flows_bak/"+id+"?rev="+rev
 		r = requests.delete(del_id)
 		flow_info =  json.loads(r.text)
 		return json.dumps(flow_info)
@@ -126,7 +145,7 @@ def delete_user():
 		json_data = request.get_json()
 		id = json_data.get("id", "")
 		rev = json_data.get("rev", "")
-		del_id = "http://172.16.0.6:5984/user/"+id+"?rev="+rev
+		del_id = "http://localhost:5984/user/"+id+"?rev="+rev
 		r = requests.delete(del_id)
 		flow_info =  json.loads(r.text)
 		return json.dumps(flow_info)
@@ -136,7 +155,7 @@ def delete_user():
 def get_all_flows():
 	output = {}
 	tmp_list = []
-	flows_url = "http://172.16.0.6:5984/flows/_all_docs"
+	flows_url = "http://localhost:5984/flows_bak/_all_docs"
 	r = requests.get(flows_url)
 	flow_info =  json.loads(r.text)
 	return json.dumps(flow_info)
@@ -147,7 +166,7 @@ def get_flow_info():
 	if request.method == 'POST':
 		json_data = request.get_json()
 		flow_id = json_data.get("flow_id", "")
-		url = "http://172.16.0.6:5984/flows/"+flow_id
+		url = "http://localhost:5984/flows_bak/"+flow_id
 		print url
 		r = requests.get(url)
 		info = json.loads(r.text)
@@ -163,7 +182,7 @@ def register_user():
 		username = json_data.get("username", "")
 		password = json_data.get("password", "")
 		role = json_data.get("role", "")
-		url = "http://172.16.0.6:5984/user/"
+		url = "http://localhost:5984/user/"
 		r = requests.post(url, json={"username": username,"password":password,"role":role})
 		info = json.loads(r.text)
 		return json.dumps(info)
@@ -190,4 +209,4 @@ def logout():
 	return json.dumps(output)
 
 if __name__ == '__main__':
-	app.run(debug=True)
+	app.run(debug=True, host="0.0.0.0")
