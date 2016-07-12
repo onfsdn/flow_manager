@@ -38,27 +38,11 @@ window[appName].controller('sdn_add_flow_controller',function($rootScope,$scope,
 		switch (action) {
 
 
-			case 'get_switch':
 
-				$scope.switch_detail = response["rows"][0]["id"];
 
-				alert(response["rows"][0]["id"]);
+			case 'add_flow':
 
-				alert(response["rows"][1]["id"]);
-
-				break;
-
-			case 'get_switch_info':
-
-				$scope.switch_info = response;
-				$scope.flow_info = response["rows"][1]["value"]["data"]["flows"];
-				break;
-
-			case 'delete_flow':
-
-				$scope.del_info = response;
-				HttpRequest('get','get_switch_info',window.flaskURL+'get_switch_info','');
-				alert("Successfully Deleted")
+				console.log(response);
 				break;
 
 		}
@@ -78,6 +62,11 @@ window[appName].controller('sdn_add_flow_controller',function($rootScope,$scope,
         });
 
 	}
+
+    $scope.add_flow=function()
+    {
+        HttpRequest('post','add_flow',window.flaskURL+'add_flow',JSON.parse($scope.flow));
+    }
 
 
 

@@ -132,11 +132,10 @@ def add_flow():
     output = {}
     if request.method == 'POST':
         json_data = request.get_json()
-        username = json_data.get("username", "")
-        password = json_data.get("password", "")
+        print json_data
         role = json_data.get("role", "")
-        url = "http://localhost:5984/user/"
-        r = requests.post(url, json={"username": username, "password": password, "role": role})
+        url = "http://localhost:5984/flows_bak/"
+        r = requests.post(url, json=json_data)
         info = json.loads(r.text)
         return json.dumps(info)
 
