@@ -10,10 +10,10 @@
             <div class="box box-info">
                 <div class="box-header with-border">
                     <h3 class="box-title">Flows</h3>
-                    <div class="pull-right">
+
+                        <span style="float:right;">
 
 
-                        <div class="input-group col-xs-16">
                             Show
                             <select ng-model="itemperpage" ng-change="switch_post()">
                                 <option value="5">5</option>
@@ -24,11 +24,12 @@
                             </select>
 
                             <input type="text" class="form-control" ng-model="searchText">
-                            <div class="input-group-btn">
-                                <button class="btn btn-info" type="button">Search</button>
-                            </div>
-                        </div>
-                    </div>
+                            <button type="button" class="btn btn-default btn-sm" title="Search"
+                                    ng-click="switch_post()">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            </span>
+
                 </div>
 
                 <div class="box-body">
@@ -65,7 +66,6 @@
 
                         </tbody>
                     </table>
-
 
 
                 </div>
