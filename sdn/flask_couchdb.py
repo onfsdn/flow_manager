@@ -126,6 +126,20 @@ def get_switch():
     return json.dumps(flow_info)
 
 
+@app.route('/add_flow', methods=['GET', 'POST', 'OPTIONS'])
+@cross_origin()
+def add_flow():
+    output = {}
+    if request.method == 'POST':
+        json_data = request.get_json()
+        username = json_data.get("username", "")
+        password = json_data.get("password", "")
+        role = json_data.get("role", "")
+        url = "http://localhost:5984/user/"
+        r = requests.post(url, json={"username": username, "password": password, "role": role})
+        info = json.loads(r.text)
+        return json.dumps(info)
+
 @app.route('/delete_flow', methods=['GET', 'POST', 'OPTIONS'])
 @cross_origin()
 def delete_flow():
