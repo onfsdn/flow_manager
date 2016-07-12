@@ -1,6 +1,65 @@
 window[appName].controller('sdn_graph_controller', function ($rootScope, $scope, $state, $stateParams, $http, $window, $location, $q, $filter) {
 
     console.log("Called");
+
+
+
+    if ($scope.logged_in == undefined || $scope.logged_in == "") {
+        window.location = "index.html";
+    }
+
+    function HttpRequest(method, action, URL, parameter) {
+
+        $rootScope.showLoader = true;
+
+        var $promise = '';
+        if (method === "post") {
+            $promise = $http.post(URL, parameter);
+        } else {
+            $promise = $http.get(URL, parameter);
+        }
+        $promise.then(function (response) {
+            var result = angular.fromJson(response.data);
+            processTheData(action, result);
+
+            $rootScope.showLoader = false;
+
+        });
+    };
+
+
+    function processTheData(action, response) {
+
+        switch (action) {
+
+
+            case 'get_switch':
+
+                $scope.switch_detail = response["rows"][1]["id"];
+
+                break;
+
+            case 'get_switch_info':
+                $scope.switch_info = response;
+                $scope.flow_info = response["rows"];
+                break;
+
+            case 'get_flow_info':
+                bootbox.alert(response.toSource());
+
+                break;
+
+            case 'get_toplogy':
+                $scope.topology = response;
+                break;
+        }
+
+    }
+
+    HttpRequest('get', 'get_toplogy', window.flaskURL + 'get_toplogy', '');
+
+    update();
+
     var mousex = 0;
     var mousey = 0;
 
@@ -24,19 +83,23 @@ window[appName].controller('sdn_graph_controller', function ($rootScope, $scope,
         .attr("width", w)
         .attr("height", h);
 
-/*    d3.json(window.flaskURL + 'get_toplogy', function (json) {
-        root = json;
-        root.rows = root.rows;
+    /*d3.json(window.flaskURL + 'get_toplogy', function (json) {
+     root = json;
+     root.rows = root.rows;
 
-        root.fixed = true;
-        root.x = w / 2;
-        root.y = h / 2 - 80;
-        update();
-    });*/
+     root.fixed = true;
+     root.x = w / 2;
+     root.y = h / 2 - 80;
+     update();
+     });*/
 
 
     function update() {
-        var nodes = flatten($scope.topology),
+        root = $scope.topology;
+        root.fixed = true;
+        root.x = w / 2;
+        root.y = h / 2 - 80;
+        var nodes = flatten(root),
             links = d3.layout.tree().links(nodes);
 
         // Restart the force layout.
@@ -193,63 +256,6 @@ window[appName].controller('sdn_graph_controller', function ($rootScope, $scope,
         htmlstr = htmlstr + "</table>";
         return htmlstr;
     }
-
-
-    if ($scope.logged_in == undefined || $scope.logged_in == "") {
-        window.location = "index.html";
-    }
-
-    function HttpRequest(method, action, URL, parameter) {
-
-        $rootScope.showLoader = true;
-
-        var $promise = '';
-        if (method === "post") {
-            $promise = $http.post(URL, parameter);
-        } else {
-            $promise = $http.get(URL, parameter);
-        }
-        $promise.then(function (response) {
-            var result = angular.fromJson(response.data);
-            processTheData(action, result);
-
-            $rootScope.showLoader = false;
-
-        });
-    };
-    HttpRequest('get', 'get_toplogy', window.flaskURL + 'get_toplogy', '');
-
-    update();
-
-    function processTheData(action, response) {
-
-        switch (action) {
-
-
-            case 'get_switch':
-
-                $scope.switch_detail = response["rows"][1]["id"];
-
-                break;
-
-            case 'get_switch_info':
-                $scope.switch_info = response;
-                $scope.flow_info = response["rows"];
-                break;
-
-            case 'get_flow_info':
-                bootbox.alert(response.toSource());
-
-                break;
-
-            case 'get_toplogy':
-                $scope.topology = response;
-                break;
-        }
-
-    }
-
-
 
 
 });
