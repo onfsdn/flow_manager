@@ -87,7 +87,7 @@ def get_all_users():
 def get_topology():
         output = {}
         tmp_list = []
-        flows_url = "http://localhost:5984/flows_bak/_design/flows/_view/flow?limit=100"
+        flows_url = "http://localhost:5984/flows_bak/_design/flows/_view/flow"
         r = requests.get(flows_url)
         flow_info =  json.loads(r.text)
         return json.dumps(flow_info)
