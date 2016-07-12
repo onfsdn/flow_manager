@@ -94,6 +94,8 @@ window[appName].controller('sdn_graph_controller', function ($rootScope, $scope,
      });
 
 
+
+
     function update() {
         var nodes = flatten(root),
             links = d3.layout.tree().links(nodes);
