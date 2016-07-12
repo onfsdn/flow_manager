@@ -73,8 +73,8 @@ function update()
                       .attr("r", function(d) { return 10; })
                       .style("fill", color)
                       .on("click", click)
-                      .on("mouseenter",function(d){ Tooltip(d);})
-                      .on("mouseleave",function(d){ TooltipRemove(d);})
+                      //.on("mouseenter",function(d){ Tooltip(d);})
+                      //.on("mouseleave",function(d){ TooltipRemove(d);})
                       .call(force.drag);
 
           // Exit any old nodes.
