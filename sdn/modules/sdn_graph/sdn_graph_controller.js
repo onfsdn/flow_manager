@@ -217,7 +217,7 @@ window[appName].controller('sdn_graph_controller', function ($rootScope, $scope,
 
         });
     };
-    HttpRequest('post', 'get_toplogy', window.flaskURL + 'get_toplogy', param);
+    HttpRequest('get', 'get_toplogy', window.flaskURL + 'get_toplogy', '');
 
     update();
 
