@@ -109,9 +109,10 @@ function tick() {
 // Toggle rows on click.
         function click(d)
         {
-                alert('http://localhost:5984/flows_bak/'+d.id);
-                                if (d.rows)
+
+            if (d.rows)
                 {
+                    HttpRequest('post','get_flow_info',window.flaskURL+'get_flow_info',{"flow_id": d.id});
                         d._rows = d.rows;
                         d.rows = null;
                 }
@@ -211,6 +212,10 @@ function flatten(root)
 				$scope.switch_info = response;
 				$scope.flow_info = response["rows"];
 				break;
+
+            case 'get_flow_info':
+                alert(response.toSource());
+                break;
 		}
 
 	}

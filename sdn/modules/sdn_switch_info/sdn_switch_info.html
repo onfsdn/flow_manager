@@ -10,7 +10,17 @@
             <div class="box box-info">
                 <div class="box-header with-border">
                     <h3 class="box-title">Flows</h3>
-                    <div class="pull-right"><div class="input-group col-xs-16">
+                    <div class="pull-right">
+
+                        Show
+	<select ng-model="itemperpage" ng-change="switch_post()">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+    </select>
+                        <div class="input-group col-xs-16">
 
                 <input type="text" class="form-control" ng-model="searchText">
                          <div class="input-group-btn">
