@@ -20,7 +20,7 @@ var vis = d3.select("#visual").append("svg:svg")
     .attr("width", w)
     .attr("height", h);
 
-d3.json(window.flaskURL+'/get_toplogy', function(json) {
+d3.json(window.flaskURL+'get_toplogy', function(json) {
   root = json;
   root.rows = root.rows;
 
