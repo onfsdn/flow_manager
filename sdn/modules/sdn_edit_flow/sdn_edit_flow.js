@@ -41,7 +41,7 @@ window[appName].controller('sdn_edit_flow_controller',function($rootScope,$scope
 
 
 
-			case 'add_flow':
+			case 'update_flow':
 
 				console.log(response);
 				break;
@@ -70,9 +70,9 @@ window[appName].controller('sdn_edit_flow_controller',function($rootScope,$scope
 
     HttpRequest('post','get_flow_info',window.flaskURL+'get_flow_info',{"flow_id": $scope.id});
 
-    $scope.add_flow=function()
+    $scope.edit_flow=function()
     {
-        HttpRequest('post','add_flow',window.flaskURL+'add_flow',JSON.parse($scope.flow));
+        HttpRequest('post','update_flow',window.flaskURL+'update_flow',JSON.parse($scope.flow));
     }
 
 
