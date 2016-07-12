@@ -47,7 +47,7 @@ window[appName].controller('sdn_edit_flow_controller',function($rootScope,$scope
 				break;
 
             case 'get_flow_info':
-                $scope.flow = response;
+                $scope.flow = response.toSource();
                 break;
 
 		}
