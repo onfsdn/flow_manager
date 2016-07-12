@@ -56,9 +56,9 @@ window[appName].controller('sdn_graph_controller', function ($rootScope, $scope,
 
     }
 
-    HttpRequest('get', 'get_toplogy', window.flaskURL + 'get_toplogy', '');
+    //HttpRequest('get', 'get_toplogy', window.flaskURL + 'get_toplogy', '');
 
-    update();
+    //update();
 
     var mousex = 0;
     var mousey = 0;
@@ -83,7 +83,7 @@ window[appName].controller('sdn_graph_controller', function ($rootScope, $scope,
         .attr("width", w)
         .attr("height", h);
 
-    /*d3.json(window.flaskURL + 'get_toplogy', function (json) {
+    d3.json(window.flaskURL + 'get_toplogy', function (json) {
      root = json;
      root.rows = root.rows;
 
@@ -91,14 +91,10 @@ window[appName].controller('sdn_graph_controller', function ($rootScope, $scope,
      root.x = w / 2;
      root.y = h / 2 - 80;
      update();
-     });*/
+     });
 
 
     function update() {
-        root = $scope.topology;
-        root.fixed = true;
-        root.x = w / 2;
-        root.y = h / 2 - 80;
         var nodes = flatten(root),
             links = d3.layout.tree().links(nodes);
 
