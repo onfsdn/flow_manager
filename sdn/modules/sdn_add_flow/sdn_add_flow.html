@@ -1,7 +1,7 @@
 <section class="content-header bread">
     <ol class="breadcrumb">
         <li class="active" ui-sref="sdn_home" style="cursor:pointer;">FLow Management</li>
-        <li>Flows</li>
+        <li>Add Flow</li>
     </ol>
 </section>
 <section class="content">
@@ -9,14 +9,162 @@
         <div class="col-md-12">
             <div class="box box-info">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Flows</h3>
+                    <h3 class="box-title">Add Flow</h3>
                 </div>
-                <div class="box-body">
+                <form class="form-horizontal" name="add_flow_form">
 
-                    <div style="overflow-y: auto;overflow-x: auto;" id="visual">
-                        <span id="tooltip"></span>
+                    <div class="box-body">
+
+                        <!--
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="hard_timeout">hard_timeout : </label>
+                            <div class="col-sm-4" style="padding-top: 7px;">
+
+                                <input type="text" placeholder="hard_timeout" id="hard_timeout" name="hard_timeout"
+                                       class="form-control" ng-model="hard_timeout">
+
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="command">command : </label>
+                            <div class="col-sm-4" style="padding-top: 7px;">
+
+                                <input type="text" placeholder="command" id="command" name="command"
+                                       class="form-control" ng-model="command">
+
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="cookie_mask">cookie_mask : </label>
+                            <div class="col-sm-4" style="padding-top: 7px;">
+
+                                <input type="text" placeholder="cookie_mask" id="cookie_mask" name="cookie_mask"
+                                       class="form-control" ng-model="cookie_mask">
+
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="buffer_id">buffer_id : </label>
+                            <div class="col-sm-4" style="padding-top: 7px;">
+
+                                <input type="text" placeholder="buffer_id" id="buffer_id" name="buffer_id"
+                                       class="form-control" ng-model="buffer_id">
+
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="priority">priority : </label>
+                            <div class="col-sm-4" style="padding-top: 7px;">
+
+                                <input type="text" placeholder="priority" id="priority" name="priority"
+                                       class="form-control" ng-model="priority">
+
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="out_group">out_group : </label>
+                            <div class="col-sm-4" style="padding-top: 7px;">
+
+                                <input type="text" placeholder="out_group" id="out_group" name="out_group"
+                                       class="form-control" ng-model="out_group">
+
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="idle_timeout">idle_timeout : </label>
+                            <div class="col-sm-4" style="padding-top: 7px;">
+
+                                <input type="text" placeholder="idle_timeout" id="idle_timeout" name="idle_timeout"
+                                       class="form-control" ng-model="idle_timeout">
+
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="flags">flags : </label>
+                            <div class="col-sm-4" style="padding-top: 7px;">
+
+                                <input type="text" placeholder="flags" id="flags" name="flags"
+                                       class="form-control" ng-model="flags">
+
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="out_port">out_port : </label>
+                            <div class="col-sm-4" style="padding-top: 7px;">
+
+                                <input type="text" placeholder="out_port" id="out_port" name="out_port"
+                                       class="form-control" ng-model="out_port">
+
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="cookie">cookie : </label>
+                            <div class="col-sm-4" style="padding-top: 7px;">
+
+                                <input type="text" placeholder="cookie" id="cookie" name="cookie"
+                                       class="form-control" ng-model="cookie">
+
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="table_id">table_id : </label>
+                            <div class="col-sm-4" style="padding-top: 7px;">
+
+                                <input type="text" placeholder="table_id" id="table_id" name="table_id"
+                                       class="form-control" ng-model="table_id">
+
+                            </div>
+
+                        </div>
+
+                            -->
+
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="flow">Flow : </label>
+                            <div class="col-sm-4">
+
+                                            <textarea id="flow" name="flow" class="form-control"
+                                                      ng-model="flow" rows="5"
+                                                      placeholder="Enter your flow json here ..."></textarea>
+
+                            </div>
+
+
+                        </div>
+
+
                     </div>
-                </div>
+
+
+                    <div class="box-footer clearfix">
+
+                        <div class="col-sm-offset-2 col-sm-2">
+                            <button class="btn btn-info" type="submit" ng-click="add_flow()">Add Flow
+                            </button>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <a ui-sref="sdn_switch_info">
+                                <button class="btn btn-default" type="reset">Cancel
+                                </button>
+                            </a>
+
+                        </div>
+                    </div>
+
+                </form>
             </div>
         </div>
     </div>
