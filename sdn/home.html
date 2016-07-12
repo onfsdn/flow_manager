@@ -15,8 +15,7 @@
     <link rel="stylesheet" type="text/css" href="dist/css/lightview/lightview.css"/>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 
-<link type="text/css" rel="stylesheet" href="style.css"/>
-
+    <link type="text/css" rel="stylesheet" href="style.css"/>
 
 
     <!--[if lt IE 9]>
@@ -49,16 +48,15 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
     <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.2.js"></script>
-    
 
 
     <script type="text/javascript" src="dist/js/ngValidator.js"></script>
 
     <script type="text/javascript" src="dist/js/dirPagination.js"></script>
     <script type="text/javascript" src="main_app.js"></script>
-    
-	<script src="https://rawgithub.com/pablojim/highcharts-ng/master/src/highcharts-ng.js"></script>
-    
+
+    <script src="https://rawgithub.com/pablojim/highcharts-ng/master/src/highcharts-ng.js"></script>
+
     <script type="text/javascript" src="modules/sdn_home/sdn_home_controller.js"></script>
 
     <script type="text/javascript" src="modules/sdn_graph/sdn_graph_controller.js"></script>
@@ -71,10 +69,10 @@
 
     <script type="text/javascript" src="modules/sdn_user_list/sdn_user_list_controller.js"></script>
 
- <script type="text/javascript" src="d3/d3.js"></script>
+    <script type="text/javascript" src="d3/d3.js"></script>
     <script type="text/javascript" src="d3/d3.geom.js"></script>
     <script type="text/javascript" src="d3/d3.layout.js"></script>
-        <script type="text/javascript" src="d3/CodeFlower.js"></script>
+    <script type="text/javascript" src="d3/CodeFlower.js"></script>
 
 
     <script type="text/javascript" src="plugins/select2/select2.full.min.js"></script>
@@ -103,19 +101,22 @@
 <div class="wrapper">
     <header class="main-header"><a ui-sref="sdn_home" class="logo"> <span class="logo-mini"><b
             style="font-size:12px; color:#333;">SDN</b></span> <span class="logo-lg"><img src="dist/img/logo.png"
-                                                                                            width="150px"></span> </a>
+                                                                                          width="150px"></span> </a>
         <nav class="navbar navbar-static-top" role="navigation"><a class="sidebar-toggle"
                                                                    data-toggle="offcanvas" role="button"> <span
                 class="sr-only">Toggle navigation</span> </a>
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
-                    <li class="dropdown user user-menu" style="cursor:pointer;"><a class="dropdown-toggle" data-toggle="dropdown"><span
+                    <li class="dropdown user user-menu" style="cursor:pointer;"><a class="dropdown-toggle"
+                                                                                   data-toggle="dropdown"><span
                             class="hidden-xs">{{logged_in}}</span> </a>
                         <ul class="dropdown-menu">
                             <li class="user-footer">
-                                <div class="pull-left"><!--<a href="#" class="btn btn-default btn-flat">Profile</a>--></div>
+                                <div class="pull-left">
+                                    <!--<a href="#" class="btn btn-default btn-flat">Profile</a>--></div>
                                 <div class="pull-right" style="cursor:pointer;"><a class="btn btn-default btn-flat"
-                                                           ng-click="logout()">Sign out</a></div>
+                                                                                   ng-click="logout()">Sign out</a>
+                                </div>
                             </li>
                         </ul>
                     </li>
@@ -132,15 +133,16 @@
                         <li class="treeview" ng-class="{active: navigation.menu_item == 'sdn_home'}">
                             <a ui-sref="sdn_home"> <i class="fa fa-circle-o"></i> <span>Flows</span></a>
                         </li>
-			<li class="treeview" ng-class="{active: navigation.menu_item == 'sdn_graph'}">
+                        <li class="treeview" ng-class="{active: navigation.menu_item == 'sdn_graph'}">
                             <a ui-sref="sdn_graph"> <i class="fa fa-circle-o"></i> <span>Flows Graph</span></a>
                         </li>
 
                     </ul>
                 </li>
 
-                 <li class="treeview" ng-if="role=='1'"><a href="#"> <i class="fa fa-dashboard"></i> <span>User Management</span> <i
-                        class="fa fa-angle-left pull-right"></i> </a>
+                <li class="treeview" ng-if="role=='1'"><a href="#"> <i class="fa fa-dashboard"></i> <span>User Management</span>
+                    <i
+                            class="fa fa-angle-left pull-right"></i> </a>
                     <ul class="treeview-menu" style="display:block;">
                         <li class="treeview" ng-class="{active: navigation.menu_item == 'sdn_register'}">
                             <a ui-sref="sdn_register"> <i class="fa fa-circle-o"></i> <span>Add User</span></a>
@@ -158,6 +160,7 @@
     <div class="content-wrapper">
         <div ui-view id="temp"></div>
     </div>
-    <footer class="main-footer"><strong>Copyright &copy; {{previous_year}} - {{current_year}} &nbsp; <a href="http://octest.in/sdnhackfest/index.html" target="_blank">SDN Hackfest</a> </strong>&nbsp; All rights
+    <footer class="main-footer"><strong>Copyright &copy; {{previous_year}} - {{current_year}} &nbsp; <a
+            href="http://octest.in/sdnhackfest/index.html" target="_blank">SDN Hackfest</a> </strong>&nbsp; All rights
         reserved.
- </footer>
+    </footer>

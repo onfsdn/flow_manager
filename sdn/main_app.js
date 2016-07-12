@@ -2,7 +2,7 @@ window.appName = 'SDN';
 
 //window[appName] = angular.module(appName, ['ui.router','ngValidator','highcharts-ng','ngSanitize','angularUtils.directives.dirPagination']);
 
-window[appName] = angular.module(appName, ['ui.router', 'ngValidator', 'ngSanitize','highcharts-ng','angularUtils.directives.dirPagination','ngAnimate', 'ui.bootstrap']);
+window[appName] = angular.module(appName, ['ui.router', 'ngValidator', 'ngSanitize', 'highcharts-ng', 'angularUtils.directives.dirPagination', 'ngAnimate', 'ui.bootstrap']);
 
 var host = location.hostname;
 
@@ -44,7 +44,7 @@ window[appName].config(function ($stateProvider, $urlRouterProvider, $httpProvid
             controller: 'sdn_switch_info_controller',
         });
 
-     $stateProvider
+    $stateProvider
         .state('sdn_register', {
             url: '/sdn_register',
             templateUrl: 'modules/sdn_register/sdn_register.html',
@@ -57,7 +57,6 @@ window[appName].config(function ($stateProvider, $urlRouterProvider, $httpProvid
             templateUrl: 'modules/sdn_user_list/sdn_user_list.html',
             controller: 'sdn_user_list_controller',
         });
-
 
 
 });
@@ -98,7 +97,7 @@ window[appName].run(function ($rootScope, $window, $location, loginService, sess
 
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
 
-         console.log('toState.name: '+toState.name);
+        console.log('toState.name: ' + toState.name);
 
         $rootScope.navigation.menu_item = toState.name;
 
