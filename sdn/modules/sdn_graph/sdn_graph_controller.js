@@ -97,6 +97,12 @@ window[appName].controller('sdn_graph_controller', function ($rootScope, $scope,
      update();
      });
 
+    function redraw() {
+    console.log("zoom", d3.event.translate, d3.event.scale);
+  vis.attr("transform",
+      "translate(" + d3.event.translate + ")"
+      + " scale(" + d3.event.scale + ")");
+    }
 
 
 
