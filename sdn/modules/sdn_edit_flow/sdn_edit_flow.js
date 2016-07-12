@@ -9,7 +9,7 @@ window[appName].controller('sdn_edit_flow_controller',function($rootScope,$scope
 	{
 		window.location = "index.html";
 	}
-    $scoep.id = $stateParams.id;
+    $scope.id = $stateParams.id;
 
 	$scope.itemperpage = 10;
 	$scope.sw_pagination = {};
@@ -46,6 +46,10 @@ window[appName].controller('sdn_edit_flow_controller',function($rootScope,$scope
 				console.log(response);
 				break;
 
+            case 'get_flow_info':
+                $scope.flow = response;
+                break;
+
 		}
 
 	}
@@ -63,6 +67,8 @@ window[appName].controller('sdn_edit_flow_controller',function($rootScope,$scope
         });
 
 	}
+
+    HttpRequest('post','get_flow_info',window.flaskURL+'get_flow_info',{"flow_id": d.id});
 
     $scope.add_flow=function()
     {
