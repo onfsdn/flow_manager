@@ -1,0 +1,58 @@
+<section class="content-header bread">
+    <ol class="breadcrumb">
+        <li class="active" ui-sref="sdn_home" style="cursor:pointer;">FLow Management</li>
+        <li>Update Flow</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Update Flow {{ id }}</h3>
+                </div>
+                <form class="form-horizontal" name="add_flow_form">
+
+                    <div class="box-body">
+
+
+
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="flow">Flow : </label>
+                            <div class="col-sm-4">
+
+                                            <textarea id="flow" name="flow" class="form-control"
+                                                      ng-model="flow" rows="5"
+                                                      placeholder="Enter your flow json here ..."></textarea>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="box-footer clearfix">
+
+                        <div class="col-sm-offset-2 col-sm-2">
+                            <button class="btn btn-info" type="submit" ng-click="edit_flow()">Update Flow
+                            </button>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <a ui-sref="sdn_switch_info">
+                                <button class="btn btn-default" type="reset">Cancel
+                                </button>
+                            </a>
+
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

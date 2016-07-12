@@ -62,8 +62,10 @@
                             <td>{{k.value.data.OFPFlowMod.out_port}}</td>
                             <td>{{k.value.data.OFPFlowMod.idle_timeout}}</td>
                             <td>{{k.value.data.OFPFlowMod.match.OFPMatch}}</td>
-                            <td ng-if="role=='1'"><span ng-click="flow_delete(k.value._id,k.value._rev)"><i
-                                    class="fa fa-fw fa-remove" style="cursor:pointer;"></i></span></td>
+                            <td ng-if="role=='1'"><span ng-click="flow_delete(k.value._id,k.value._rev)">
+                                <i class="fa fa-fw fa-remove" style="cursor:pointer;"></i></span>
+                                <a ui-sref="sdn_edit_flow({id:k.id})"><i class="fa fa-fw fa-edit" style="cursor:pointer;"></i></span></a>
+                            </td>
                         </tr>
 
                         </tbody>

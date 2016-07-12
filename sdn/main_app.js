@@ -45,6 +45,13 @@ window[appName].config(function ($stateProvider, $urlRouterProvider, $httpProvid
         });
 
     $stateProvider
+        .state('sdn_edit_flow', {
+            url: '/sdn_edit_flow/:id',
+            templateUrl: 'modules/sdn_edit_flow/sdn_edit_flow.html',
+            controller: 'sdn_edit_flow_controller',
+        });
+
+    $stateProvider
         .state('sdn_switch_info', {
             url: '/sdn_switch_info',
             templateUrl: 'modules/sdn_switch_info/sdn_switch_info.html',

@@ -139,6 +139,23 @@ def add_flow():
         info = json.loads(r.text)
         return json.dumps(info)
 
+
+@app.route('/update_flow', methods=['GET', 'POST', 'OPTIONS'])
+@cross_origin()
+def update_flow():
+    output = {}
+    if request.method == 'POST':
+        json_data = request.get_json()
+        data = json_data.get("data", {})
+        id = json_data.get("id", "")
+        rev = json_data.get("rev", "")
+        print json_data
+
+        up_id = "http://localhost:5984/flows_bak/" + id + "?rev=" + rev
+        r = requests.post(up_id, json=json_data)
+        info = json.loads(r.text)
+        return json.dumps(info)
+
 @app.route('/delete_flow', methods=['GET', 'POST', 'OPTIONS'])
 @cross_origin()
 def delete_flow():
