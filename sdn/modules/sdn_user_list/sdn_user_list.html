@@ -28,12 +28,12 @@
                             <td>{{k.value.username}}</td>
                             <td ng-if="k.value.role=='1'">Admin (Full Access)</td>
                             <td ng-if="k.value.role=='2'">User (View Access)</td>
-                            <td ng-if="role=='1'"><span ng-click="flow_delete(k.value._id,k.value._rev)"><i class="fa fa-fw fa-remove" style="cursor:pointer;"></i></span></td>
+                            <td ng-if="role=='1'"><span ng-click="flow_delete(k.value._id,k.value._rev)"><i
+                                    class="fa fa-fw fa-remove" style="cursor:pointer;"></i></span></td>
                         </tr>
 
                         </tbody>
                     </table>
-
 
 
                     <!--<span ng-repeat="f in flow_info">-->
