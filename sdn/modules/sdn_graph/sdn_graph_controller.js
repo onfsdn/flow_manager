@@ -24,7 +24,7 @@ window[appName].controller('sdn_graph_controller', function ($rootScope, $scope,
         .attr("width", w)
         .attr("height", h);
 
-    d3.json(window.flaskURL + 'get_toplogy', function (json) {
+/*    d3.json(window.flaskURL + 'get_toplogy', function (json) {
         root = json;
         root.rows = root.rows;
 
@@ -32,11 +32,11 @@ window[appName].controller('sdn_graph_controller', function ($rootScope, $scope,
         root.x = w / 2;
         root.y = h / 2 - 80;
         update();
-    });
+    });*/
 
 
     function update() {
-        var nodes = flatten(root),
+        var nodes = flatten($scope.topology),
             links = d3.layout.tree().links(nodes);
 
         // Restart the force layout.
@@ -218,6 +218,8 @@ window[appName].controller('sdn_graph_controller', function ($rootScope, $scope,
         });
     };
 
+    update();
+
     function processTheData(action, response) {
 
         switch (action) {
@@ -238,9 +240,15 @@ window[appName].controller('sdn_graph_controller', function ($rootScope, $scope,
                 bootbox.alert(response.toSource());
 
                 break;
+
+            case 'get_toplogy':
+                $scope.topology = response;
+                break;
         }
 
     }
+
+    HttpRequest('post', 'get_toplogy', window.flaskURL + 'get_toplogy', param);
 
 
 });
