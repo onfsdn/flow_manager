@@ -147,12 +147,12 @@ def update_flow():
     if request.method == 'POST':
         json_data = request.get_json()
         data = json_data.get("data", {})
-        id = json_data.get("id", "")
-        rev = json_data.get("rev", "")
+        id = json_data.get("_id", "")
+        rev = json_data.get("_rev", "")
         print json_data
 
         up_id = "http://localhost:5984/flows_bak/" + id + "?rev=" + rev
-        r = requests.post(up_id, json=json_data)
+        r = requests.put(up_id, json=json_data)
         info = json.loads(r.text)
         return json.dumps(info)
 
