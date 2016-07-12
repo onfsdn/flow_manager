@@ -109,6 +109,8 @@ function tick() {
 // Toggle rows on click.
         function click(d)
         {
+            console.log(d.id);
+            HttpRequest('post','get_flow_info',window.flaskURL+'get_flow_info',{"flow_id": d.id});
 
             if (d.rows)
                 {

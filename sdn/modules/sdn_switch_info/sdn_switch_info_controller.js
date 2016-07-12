@@ -80,7 +80,7 @@ window[appName].controller('sdn_switch_info_controller',function($rootScope,$sco
 	$scope.sw_pagination.current = 1;
 	$scope.switch_post=function()
 	{
-		param = { "page" : $scope.sw_pagination.current, "size": $scope.itemperpage }
+		param = { "page" : $scope.sw_pagination.current, "size": parseInt($scope.itemperpage) };
 		HttpRequest('post','get_switch_info',window.flaskURL+'get_switch_info',param);	
 	}
 	$scope.sw_pageChanged = function (pagenumber)
