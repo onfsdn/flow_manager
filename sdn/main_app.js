@@ -38,11 +38,19 @@ window[appName].config(function ($stateProvider, $urlRouterProvider, $httpProvid
         });
 
     $stateProvider
+        .state('sdn_add_flow', {
+            url: '/sdn_add_flow',
+            templateUrl: 'modules/sdn_add_flow/sdn_add_flow.html',
+            controller: 'sdn_add_flow_controller',
+        });
+
+    $stateProvider
         .state('sdn_switch_info', {
             url: '/sdn_switch_info',
             templateUrl: 'modules/sdn_switch_info/sdn_switch_info.html',
             controller: 'sdn_switch_info_controller',
         });
+
 
     $stateProvider
         .state('sdn_register', {
