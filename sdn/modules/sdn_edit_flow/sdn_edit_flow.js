@@ -68,7 +68,7 @@ window[appName].controller('sdn_edit_flow_controller',function($rootScope,$scope
 
 	}
 
-    HttpRequest('post','get_flow_info',window.flaskURL+'get_flow_info',{"flow_id": d.id});
+    HttpRequest('post','get_flow_info',window.flaskURL+'get_flow_info',{"flow_id": $scope.id});
 
     $scope.add_flow=function()
     {
