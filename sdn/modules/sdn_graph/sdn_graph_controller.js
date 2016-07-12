@@ -78,10 +78,14 @@ window[appName].controller('sdn_graph_controller', function ($rootScope, $scope,
             return d.target._rows ? 100 : 200;
         })
         .size([w, h - 160]);
+    var zoom = d3.behavior.zoom().on("zoom", redraw);
 
     var vis = d3.select("#visual").append("svg:svg")
         .attr("width", w)
-        .attr("height", h);
+        .attr("height", h)
+        .call(zoom)
+        .on("mousewheel.zoom", null)
+        .append('svg:g');
 
     d3.json(window.flaskURL + 'get_toplogy', function (json) {
      root = json;
