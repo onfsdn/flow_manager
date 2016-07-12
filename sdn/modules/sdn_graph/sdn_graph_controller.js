@@ -268,13 +268,13 @@ window[appName].controller('sdn_graph_controller', function ($rootScope, $scope,
 
     function get_popuptable(k)
     {
-        var table_text= "<table>";
-        table_text = table_text + "<tr><td>Command<td></td><td>"+k.data.OFPFlowMod.command+"</td></tr>";
-        table_text = table_text + "<tr><td>out_group<td></td><td>"+k.data.OFPFlowMod.out_group+"</td></tr>";
-        table_text = table_text + "<tr><td>out_port<td></td><td>"+k.data.OFPFlowMod.out_port+"</td></tr>";
-        table_text = table_text + "<tr><td>idle_timeout<td></td><td>"+k.data.OFPFlowMod.idle_timeout+"</td></tr>";
-        table_text = table_text + "<tr><td>OFPMatch<td></td><td>"+k.data.OFPFlowMod.match.OFPMatch.toSource()+"</td></tr>";
-        table_text = table_text + "<tr><td>type<td></td><td>"+k.data.OFPFlowMod.match.OFPMatch.type+"</td></tr>";
+        var table_text= "<table >";
+        table_text = table_text + "<tr><th>Command</th><td>"+k.data.OFPFlowMod.command+"</td></tr>";
+        table_text = table_text + "<tr><th>out_group</th><td>"+k.data.OFPFlowMod.out_group+"</td></tr>";
+        table_text = table_text + "<tr><th>out_port</th><td>"+k.data.OFPFlowMod.out_port+"</td></tr>";
+        table_text = table_text + "<tr><th>idle_timeout</th><td>"+k.data.OFPFlowMod.idle_timeout+"</td></tr>";
+        table_text = table_text + "<tr><th>OFPMatch</th><td>"+k.data.OFPFlowMod.match.OFPMatch.toSource()+"</td></tr>";
+        table_text = table_text + "<tr><th>type</th><td>"+k.data.OFPFlowMod.match.OFPMatch.type+"</td></tr>";
         table_text = table_text + "</table>";
         return table_text;
 
