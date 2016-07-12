@@ -45,7 +45,8 @@ window[appName].controller('sdn_graph_controller', function ($rootScope, $scope,
                 break;
 
             case 'get_flow_info':
-                bootbox.alert(response.toSource());
+                table= get_popuptable(response);
+                bootbox.alert(table);
 
                 break;
 
@@ -263,6 +264,21 @@ window[appName].controller('sdn_graph_controller', function ($rootScope, $scope,
         htmlstr = htmlstr + "</td></tr>";
         htmlstr = htmlstr + "</table>";
         return htmlstr;
+    }
+
+    function get_popuptable(k)
+    {
+        var table_text= "<table>";
+        table_text = table_text + "<tr><td>Command<td></td><td>"+k.value.data.OFPFlowMod.command+"</td></tr>";
+        table_text = table_text + "<tr><td>out_group<td></td><td>"+k.value.data.OFPFlowMod.out_group+"</td></tr>";
+        table_text = table_text + "<tr><td>out_port<td></td><td>"+k.value.data.OFPFlowMod.out_port+"</td></tr>";
+        table_text = table_text + "<tr><td>idle_timeout<td></td><td>"+k.value.data.OFPFlowMod.idle_timeout+"</td></tr>";
+        table_text = table_text + "<tr><td>OFPMatch<td></td><td>"+k.value.data.OFPFlowMod.match.OFPMatch+"</td></tr>";
+        table_text = table_text + "<tr><td>type<td></td><td>"+k.value.data.OFPFlowMod.match.OFPMatch.type+"</td></tr>";
+        table_text = table_text + "</table>";
+        return table_text;
+
+
     }
 
 
