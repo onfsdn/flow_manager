@@ -50,6 +50,8 @@ Have developed the User Interface to represent the switch’s data in a legible 
 8. Open the UI in browser with the ip or hostname like [http://localhost](http://localhost)
 
 **OR** without nginx
+
+
 1. Clone the code from https://github.com/onfsdn/flow_manager.git
 2. Install required python modules
 3. Run flow_manager/src/run.py
