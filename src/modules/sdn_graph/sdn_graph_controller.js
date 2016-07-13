@@ -307,8 +307,8 @@ window[appName].controller('sdn_graph_controller', function ($rootScope, $scope,
            k.data.OFPFlowMod.command={"type":"not available"};
         }
         var table_text= "<table >";
-        var table_text= "<tr><th colspan='2'>"+k.id+"</th></tr>";
-        table_text = table_text + "<tr><th><i class='fa fa-fw fa-remove' ng-click='flow_delete("+k._id+","+k._rev+")' ></i></th><th><a ui-sref='sdn_edit_flow({id:"+k.id+"})'><i class='fa fa-fw fa-edit' ></i></a></th></tr>";
+        var table_text= "<tr><th colspan='2'>"+k._id+"</th></tr>";
+        table_text = table_text + "<tr><th><i class='fa fa-fw fa-remove' ng-click='flow_delete("+k._id+","+k._rev+")' ></i></th><th><a ui-sref='sdn_edit_flow({id:"+k._id+"})'><i class='fa fa-fw fa-edit' ></i></a></th></tr>";
         table_text = table_text + "<tr><th>Command</th><td>"+k.data.OFPFlowMod.command+"</td></tr>";
         table_text = table_text + "<tr><th>out_group</th><td>"+k.data.OFPFlowMod.out_group+"</td></tr>";
         table_text = table_text + "<tr><th>out_port</th><td>"+k.data.OFPFlowMod.out_port+"</td></tr>";

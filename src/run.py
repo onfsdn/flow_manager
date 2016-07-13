@@ -99,7 +99,7 @@ def get_switch_info():
 def get_switch():
     output = {}
     tmp_list = []
-    flows_url = "http://localhost:5984/"+config.switchesdb+"/_all_docs"
+    flows_url = "http://localhost:5984/"+config.switches+"/_all_docs"
     r = requests.get(flows_url)
     flow_info = json.loads(r.text)
     return json.dumps(flow_info)
