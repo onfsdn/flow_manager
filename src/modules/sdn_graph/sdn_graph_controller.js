@@ -53,6 +53,18 @@ window[appName].controller('sdn_graph_controller', function ($rootScope, $scope,
             case 'get_toplogy':
                 $scope.topology = response;
                 break;
+
+            case 'delete_flow':
+                if (response["ok"]) {
+                    bootbox.alert("Flow deleted successfully!");
+
+
+                }
+                else {
+                    bootbox.alert("Delete Flow failed!");
+                }
+
+                break;
         }
 
     }
