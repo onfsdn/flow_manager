@@ -26,6 +26,11 @@ window[appName].controller('sdn_user_list_controller', function ($rootScope, $sc
 
     function processTheData(action, response) {
 
+        if(response["authentication"]==false)
+        {
+            window.location="index.html";
+        }
+
         switch (action) {
 
             case 'get_all_users':

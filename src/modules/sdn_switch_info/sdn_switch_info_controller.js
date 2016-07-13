@@ -31,6 +31,11 @@ window[appName].controller('sdn_switch_info_controller', function ($rootScope, $
 
     function processTheData(action, response) {
 
+        if(response["authentication"]==false)
+        {
+            window.location="index.html";
+        }
+
         switch (action) {
 
 
