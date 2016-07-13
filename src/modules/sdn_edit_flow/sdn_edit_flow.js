@@ -35,9 +35,8 @@ window[appName].controller('sdn_edit_flow_controller', function ($rootScope, $sc
 
     function processTheData(action, response) {
 
-        if(response["authentication"]==false)
-        {
-            window.location="index.html";
+        if (response["authentication"] == false) {
+            window.location = "index.html";
         }
 
         switch (action) {

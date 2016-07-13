@@ -29,7 +29,7 @@
                             </select>
 
                             &nbsp;&nbsp;&nbsp;
-                            <input type="text"  ng-model="searchText">
+                            <input type="text" ng-model="searchText">
                             <button type="button" class="btn btn-default btn-sm" title="Search"
                                     ng-click="switch_post()">
                                 <i class="fa fa-search"></i>
@@ -68,7 +68,8 @@
                             <td>{{k.value.data.OFPFlowMod.match.OFPMatch}}</td>
                             <td ng-if="role=='1'"><span ng-click="flow_delete(k.value._id,k.value._rev)">
                                 <i class="fa fa-fw fa-remove" style="cursor:pointer;"></i></span>
-                                <a ui-sref="sdn_edit_flow({id:k.id})"><i class="fa fa-fw fa-edit" style="cursor:pointer;"></i></span></a>
+                                <a ui-sref="sdn_edit_flow({id:k.id})"><i class="fa fa-fw fa-edit"
+                                                                         style="cursor:pointer;"></i></span></a>
                             </td>
                         </tr>
 

@@ -3,7 +3,6 @@ window[appName].controller('sdn_graph_controller', function ($rootScope, $scope,
     console.log("Called");
 
 
-
     if ($scope.logged_in == undefined || $scope.logged_in == "") {
         window.location = "index.html";
     }
@@ -29,9 +28,8 @@ window[appName].controller('sdn_graph_controller', function ($rootScope, $scope,
 
 
     function processTheData(action, response) {
-        if(response["authentication"]==false)
-        {
-            window.location="index.html";
+        if (response["authentication"] == false) {
+            window.location = "index.html";
         }
 
         switch (action) {
@@ -49,7 +47,7 @@ window[appName].controller('sdn_graph_controller', function ($rootScope, $scope,
                 break;
 
             case 'get_flow_info':
-                table= get_popuptable(response);
+                table = get_popuptable(response);
                 bootbox.alert(table);
 
                 break;
@@ -74,7 +72,7 @@ window[appName].controller('sdn_graph_controller', function ($rootScope, $scope,
     }
 
 
-    flow_delete = function(id, rev) {
+    flow_delete = function (id, rev) {
 
         var param = {"cancel": true};
 
@@ -120,26 +118,24 @@ window[appName].controller('sdn_graph_controller', function ($rootScope, $scope,
 
     d3.json(window.flaskURL + 'get_toplogy', function (json) {
 
-        if(json["authentication"]==false)
-        {
-            window.location="index.html";
+        if (json["authentication"] == false) {
+            window.location = "index.html";
         }
-     root = json;
-     root.rows = root.rows;
+        root = json;
+        root.rows = root.rows;
 
-     root.fixed = true;
-     root.x = w / 2;
-     root.y = h / 2 - 80;
-     update();
-     });
+        root.fixed = true;
+        root.x = w / 2;
+        root.y = h / 2 - 80;
+        update();
+    });
 
     function redraw() {
-    console.log("zoom", d3.event.translate, d3.event.scale);
-  vis.attr("transform",
-      "translate(" + d3.event.translate + ")"
-      + " scale(" + d3.event.scale + ")");
+        console.log("zoom", d3.event.translate, d3.event.scale);
+        vis.attr("transform",
+            "translate(" + d3.event.translate + ")"
+            + " scale(" + d3.event.scale + ")");
     }
-
 
 
     function update() {
@@ -301,41 +297,34 @@ window[appName].controller('sdn_graph_controller', function ($rootScope, $scope,
         return htmlstr;
     }
 
-    function get_popuptable(k)
-    {
-        if(k.data.OFPFlowMod==undefined)
-        {
-            k.data.OFPFlowMod={};
+    function get_popuptable(k) {
+        if (k.data.OFPFlowMod == undefined) {
+            k.data.OFPFlowMod = {};
         }
-        if(k.data.OFPFlowMod.command==undefined)
-        {
-           k.data.OFPFlowMod.command="not available";
+        if (k.data.OFPFlowMod.command == undefined) {
+            k.data.OFPFlowMod.command = "not available";
         }
-        if(k.data.OFPFlowMod.out_group==undefined)
-        {
-           k.data.OFPFlowMod.out_group="not available";
+        if (k.data.OFPFlowMod.out_group == undefined) {
+            k.data.OFPFlowMod.out_group = "not available";
         }
-        if(k.data.OFPFlowMod.out_port==undefined)
-        {
-           k.data.OFPFlowMod.out_port="not available";
+        if (k.data.OFPFlowMod.out_port == undefined) {
+            k.data.OFPFlowMod.out_port = "not available";
         }
-        if(k.data.OFPFlowMod.idle_timeout==undefined)
-        {
-           k.data.OFPFlowMod.idle_timeout="not available";
+        if (k.data.OFPFlowMod.idle_timeout == undefined) {
+            k.data.OFPFlowMod.idle_timeout = "not available";
         }
-        if(k.data.OFPFlowMod.match.OFPMatch==undefined)
-        {
-           k.data.OFPFlowMod.command={"type":"not available"};
+        if (k.data.OFPFlowMod.match.OFPMatch == undefined) {
+            k.data.OFPFlowMod.command = {"type": "not available"};
         }
-        var table_text= "<table >";
-        var table_text= "<tr><th colspan='2'>"+k._id+"</th></tr>";
-        table_text = table_text + "<tr><th><i class='fa fa-fw fa-remove' onclick=flow_delete('"+k._id+"','"+k._rev+"') ></i></th><th><a href='#/sdn_edit_flow/"+k._id+"'><i class='fa fa-fw fa-edit' ></i></a></th></tr>";
-        table_text = table_text + "<tr><th>Command</th><td>"+k.data.OFPFlowMod.command+"</td></tr>";
-        table_text = table_text + "<tr><th>out_group</th><td>"+k.data.OFPFlowMod.out_group+"</td></tr>";
-        table_text = table_text + "<tr><th>out_port</th><td>"+k.data.OFPFlowMod.out_port+"</td></tr>";
-        table_text = table_text + "<tr><th>idle_timeout</th><td>"+k.data.OFPFlowMod.idle_timeout+"</td></tr>";
-        table_text = table_text + "<tr><th>OFPMatch</th><td>"+k.data.OFPFlowMod.match.OFPMatch.toSource()+"</td></tr>";
-        table_text = table_text + "<tr><th>type</th><td>"+k.data.OFPFlowMod.match.OFPMatch.type+"</td></tr>";
+        var table_text = "<table >";
+        var table_text = "<tr><th colspan='2'>" + k._id + "</th></tr>";
+        table_text = table_text + "<tr><th><i class='fa fa-fw fa-remove' onclick=flow_delete('" + k._id + "','" + k._rev + "') ></i></th><th><a href='#/sdn_edit_flow/" + k._id + "'><i class='fa fa-fw fa-edit' ></i></a></th></tr>";
+        table_text = table_text + "<tr><th>Command</th><td>" + k.data.OFPFlowMod.command + "</td></tr>";
+        table_text = table_text + "<tr><th>out_group</th><td>" + k.data.OFPFlowMod.out_group + "</td></tr>";
+        table_text = table_text + "<tr><th>out_port</th><td>" + k.data.OFPFlowMod.out_port + "</td></tr>";
+        table_text = table_text + "<tr><th>idle_timeout</th><td>" + k.data.OFPFlowMod.idle_timeout + "</td></tr>";
+        table_text = table_text + "<tr><th>OFPMatch</th><td>" + k.data.OFPFlowMod.match.OFPMatch.toSource() + "</td></tr>";
+        table_text = table_text + "<tr><th>type</th><td>" + k.data.OFPFlowMod.match.OFPMatch.type + "</td></tr>";
         table_text = table_text + "</table>";
         return table_text;
 

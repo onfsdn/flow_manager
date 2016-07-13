@@ -31,23 +31,12 @@ window[appName].controller('sdn_switch_info_controller', function ($rootScope, $
 
     function processTheData(action, response) {
 
-        if(response["authentication"]==false)
-        {
-            window.location="index.html";
+        if (response["authentication"] == false) {
+            window.location = "index.html";
         }
 
         switch (action) {
 
-
-            case 'get_switch':
-
-                $scope.switch_detail = response["rows"][0]["id"];
-
-                alert(response["rows"][0]["id"]);
-
-                alert(response["rows"][1]["id"]);
-
-                break;
 
             case 'get_switch_info':
 
