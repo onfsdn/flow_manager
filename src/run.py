@@ -14,6 +14,18 @@ app = Flask(__name__, static_folder='', static_url_path='')
 app.secret_key = "opensdn"
 
 
+def login_required(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        if 'logged_in' in session:
+            return f(*args, **kwargs)
+        else:
+            flash("You need to login first")
+            return redirect("index.html", code=302)
+
+    return wrap
+
+
 @app.route('/')
 def show_home():
     return redirect("index.html", code=302)
@@ -95,6 +107,7 @@ def get_switch_info():
 
 
 @app.route('/get_switch', methods=['GET', 'POST', 'OPTIONS'])
+@login_required
 @cross_origin()
 def get_switch():
     output = {}
@@ -216,6 +229,7 @@ def check_session_data():
 
 
 @app.route('/logout', methods=['GET', 'POST', 'OPTIONS'])
+@login_required
 @cross_origin()
 def logout():
     session['username'] = None
