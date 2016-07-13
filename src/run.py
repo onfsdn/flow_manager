@@ -21,7 +21,7 @@ def login_required(f):
         if 'logged_in' in session:
             return f(*args, **kwargs)
         else:
-            flash("You need to login first")
+
             return redirect("index.html", code=302)
 
     return wrap
