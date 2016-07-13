@@ -85,11 +85,9 @@ window[appName].controller('sdn_user_list_controller', function ($rootScope, $sc
 
     }
 
-    //HttpRequest('get','getdocs',window.flaskURL+'getdocs','');
 
-    //HttpRequest('get','get_switch',window.flaskURL+'get_switch','');
 
     HttpRequest('get', 'get_all_users', window.flaskURL + 'get_all_users', '');
-    //HttpRequest('get','get_all_flows',window.flaskURL+'get_all_flows','');
+
 
 });
