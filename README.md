@@ -19,12 +19,16 @@ It is difficult to read the real-time information on flows installed on the swit
 ## Solution Approach
 
 Have developed the User Interface to represent the switch’s data in a legible and readable tables. The UI interface is enhanced with several functionalities like View, Search, and Delete in the interface. 
-
  
-[Flow Manager UI](https://github.com/geethabg/Images/blob/master/FlowManager.png) 
 
   ![Flow Manager UI](https://github.com/geethabg/Images/blob/master/FlowManager.png)
-
+  
+  
+## Key functionalities
+- Manage flows ( add, edit and delete flows )
+- Graphical and Tabulated view of Flows with pagination
+- Manage users
+- Secure API ( re-usable in other application )
  
 ## Deployment Details
 
