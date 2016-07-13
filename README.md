@@ -49,6 +49,10 @@ Have developed the User Interface to represent the switch’s data in a legible 
     `sudo uwsgi –-socket :5000 -–wsgi-file run.py --master -–processes 5 -–threads 5 -–callable app`
 8. Open the UI in browser with the ip or hostname like (http://localhost)[http://localhost]
 
+## Contact 
+
+Please (Create Issue)[https://github.com/onfsdn/flow_manager/issues/new] if anything missed or any error occured.
+
 
 
 
