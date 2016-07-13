@@ -35,9 +35,9 @@ Have developed the User Interface to represent the switch’s data in a legible 
 1. Clone the code from https://github.com/onfsdn/flow_manager.git
 2. Copy the nginx configuration file from the flow_manager/sdn/default to /etc/nginx/sites-available/default
 3. Restart the nginx server
-4. Run the following uwsgi command from flow_manager/sdn/ directory.
+4. Run the following uwsgi command from flow_manager/src/ directory.
 
-	sudo uwsgi –-socket :5000 -–wsgi-file flask_couchdb.py --master -–processes 5 -–threads 5 -–callable app
+	sudo uwsgi –-socket :5000 -–wsgi-file run.py --master -–processes 5 -–threads 5 -–callable app
 
 
 
