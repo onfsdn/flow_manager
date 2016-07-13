@@ -21,8 +21,7 @@ def login_required(f):
         if 'logged_in' in session:
             return f(*args, **kwargs)
         else:
-
-            return redirect("index.html", code=302)
+            return json.dumps({"authentication":False})
 
     return wrap
 
@@ -77,6 +76,7 @@ def get_all_users():
 
 
 @app.route('/get_toplogy', methods=['GET', 'POST', 'OPTIONS'])
+@login_required
 @cross_origin()
 def get_topology():
     output = {}
@@ -88,6 +88,7 @@ def get_topology():
 
 
 @app.route('/get_switch_info', methods=['GET', 'POST', 'OPTIONS'])
+@login_required
 @cross_origin()
 def get_switch_info():
     output = {}
@@ -121,6 +122,7 @@ def get_switch():
 
 
 @app.route('/add_flow', methods=['GET', 'POST', 'OPTIONS'])
+@login_required
 @cross_origin()
 def add_flow():
     output = {}
@@ -135,6 +137,7 @@ def add_flow():
 
 
 @app.route('/update_flow', methods=['GET', 'POST', 'OPTIONS'])
+@login_required
 @cross_origin()
 def update_flow():
     output = {}
@@ -151,6 +154,7 @@ def update_flow():
         return json.dumps(info)
 
 @app.route('/delete_flow', methods=['GET', 'POST', 'OPTIONS'])
+@login_required
 @cross_origin()
 def delete_flow():
     output = {}
@@ -165,6 +169,7 @@ def delete_flow():
 
 
 @app.route('/delete_user', methods=['GET', 'POST', 'OPTIONS'])
+@login_required
 @cross_origin()
 def delete_user():
     output = {}
@@ -179,6 +184,7 @@ def delete_user():
 
 
 @app.route('/get_all_flows', methods=['GET', 'POST', 'OPTIONS'])
+@login_required
 @cross_origin()
 def get_all_flows():
     output = {}
@@ -190,6 +196,7 @@ def get_all_flows():
 
 
 @app.route('/get_flow_info', methods=['GET', 'POST', 'OPTIONS'])
+@login_required
 @cross_origin()
 def get_flow_info():
     if request.method == 'POST':
@@ -203,6 +210,7 @@ def get_flow_info():
 
 
 @app.route('/register_user', methods=['GET', 'POST', 'OPTIONS'])
+@login_required
 @cross_origin()
 def register_user():
     output = {}
