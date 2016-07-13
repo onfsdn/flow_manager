@@ -2,11 +2,12 @@
 
 ## Solution Notes - Flow Manager UI
 
--  Karthic Jayaraman
--  Hariharaselvam B
--  Dimpu Sagar N
--  Narender Kumar
--  Manoj Prashant K
+- [Karthic Jayaraman](https://github.com/karthicjayaraman) 
+- [Hariharaselvam Balasubramanian](https://github.com/hariharaselvam) 
+- [Dimpu Sagar N](https://github.com/dimpusagar91) 
+- [Manoj Prashant K](https://github.com/manojasm)
+- [Narender Kumar](https://github.com/nkkize) 
+ 
 
   
 
@@ -22,7 +23,7 @@ Have developed the User Interface to represent the switch’s data in a legible 
  
 [Flow Manager UI](https://github.com/geethabg/Images/blob/master/FlowManager.png) 
 
-  ![alt text](Flow_Manager.png "Flow Manager UI")
+  ![Flow Manager UI](https://github.com/geethabg/Images/blob/master/FlowManager.png)
 
  
 ## Deployment Details
