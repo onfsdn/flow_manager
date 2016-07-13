@@ -3,6 +3,7 @@ from flask import Blueprint, g, request, session
 from OpenSSL import SSL
 from config import *
 from flask_cors import cross_origin
+from functools import wraps
 # from couch import Couch
 import json
 import config
