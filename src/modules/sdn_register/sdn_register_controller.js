@@ -26,6 +26,11 @@ window[appName].controller('sdn_register_controller', function ($rootScope, $sco
 
     function processTheData(action, response) {
 
+        if(response["authentication"]==false)
+        {
+            window.location="index.html";
+        }
+
         switch (action) {
 
 

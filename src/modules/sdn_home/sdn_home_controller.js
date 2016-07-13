@@ -28,6 +28,11 @@ window[appName].controller('sdn_home_controller',function($rootScope,$scope,$sta
 
 	function processTheData(action, response) {
 
+		if(response["authentication"]==false)
+        {
+            window.location="index.html";
+        }
+
 		switch (action) {
 
 

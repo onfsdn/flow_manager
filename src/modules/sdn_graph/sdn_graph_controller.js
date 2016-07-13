@@ -29,6 +29,10 @@ window[appName].controller('sdn_graph_controller', function ($rootScope, $scope,
 
 
     function processTheData(action, response) {
+        if(response["authentication"]==false)
+        {
+            window.location="index.html";
+        }
 
         switch (action) {
 
@@ -115,6 +119,11 @@ window[appName].controller('sdn_graph_controller', function ($rootScope, $scope,
         .append('svg:g');
 
     d3.json(window.flaskURL + 'get_toplogy', function (json) {
+
+        if(json["authentication"]==false)
+        {
+            window.location="index.html";
+        }
      root = json;
      root.rows = root.rows;
 

@@ -30,6 +30,11 @@ window[appName].controller('sdn_flow_info_controller',function($rootScope,$scope
 
 	function processTheData(action, response) {
 
+		if(response["authentication"]==false)
+        {
+            window.location="index.html";
+        }
+
 		switch (action) {
 
 			case 'get_flow_info':
