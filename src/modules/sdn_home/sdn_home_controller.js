@@ -36,7 +36,7 @@ window[appName].controller('sdn_home_controller', function ($rootScope, $scope, 
 
             case 'get_switch':
 
-                $scope.switch_detail = response["rows"][1]["id"];
+                $scope.switch_detail = response["rows"][0]["id"];
                 console.log($scope.switch_detail);
 
                 break;
