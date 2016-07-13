@@ -47,12 +47,12 @@ window[appName].controller('sdn_register_controller', function ($rootScope, $sco
 
             case 'register_user':
                 if (response["ok"]) {
-                    bootbox.alert("Flow added successfully!");
+                    bootbox.alert("User added successfully!");
 
 
                 }
                 else {
-                    bootbox.alert("Add Flow failed!");
+                    bootbox.alert("Add User failed!");
                 }
                 console.log(response);
 
