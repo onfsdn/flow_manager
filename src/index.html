@@ -57,10 +57,6 @@
                 success: function (response) {
                     console.log(response);
 
-                    if (response.toString() == "0") {
-                        window.location = "home.html";
-                    }
-
                     if (response == 1) {
 
                         $('#error').html('');
@@ -70,6 +66,7 @@
                         //alert(sessionStorage.getItem('uid'));
 
                         if (sessionStorage.getItem("name") != null) {
+                            console.log(sessionStorage.getItem("name"))
 
                             window.location = "home.html";
 
