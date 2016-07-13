@@ -57,6 +57,10 @@
                 success: function (response) {
                     console.log(response);
 
+                    if (response.toString() == "0") {
+                        window.location = "home.html";
+                    }
+
                     if (response == 1) {
 
                         $('#error').html('');
