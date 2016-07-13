@@ -38,11 +38,16 @@ Have developed the User Interface to represent the switch’s data in a legible 
 
 
 1. Clone the code from https://github.com/onfsdn/flow_manager.git
-2. Copy the nginx configuration file from the flow_manager/sdn/default to /etc/nginx/sites-available/default
-3. Restart the nginx server
-4. Run the following uwsgi command from flow_manager/src/ directory.
-
-	sudo uwsgi –-socket :5000 -–wsgi-file run.py --master -–processes 5 -–threads 5 -–callable app
+2. Install uwsgi 
+    `sudo pip install uwsgi`
+3. Install nginx 
+    `sudo apt-get install nginx`
+4. Install required python modules
+5. Copy the nginx configuration file from the flow_manager/default to /etc/nginx/sites-available/default
+6. Restart the nginx server
+7. Run the following uwsgi command from flow_manager/src/ directory.
+    `sudo uwsgi –-socket :5000 -–wsgi-file run.py --master -–processes 5 -–threads 5 -–callable app`
+8. Open the UI in browser with the ip or hostname like (http://localhost)[http://localhost]
 
 
 
