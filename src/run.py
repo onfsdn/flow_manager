@@ -65,6 +65,7 @@ def auth():
 
 
 @app.route('/get_all_users', methods=['GET', 'POST', 'OPTIONS'])
+@login_required
 @cross_origin()
 def get_all_users():
     output = {}
