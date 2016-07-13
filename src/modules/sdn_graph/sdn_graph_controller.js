@@ -58,7 +58,7 @@ window[appName].controller('sdn_graph_controller', function ($rootScope, $scope,
     }
 
 
-    function flow_delete (id, rev) {
+    flow_delete = function(id, rev) {
 
         var param = {"cancel": true};
 
