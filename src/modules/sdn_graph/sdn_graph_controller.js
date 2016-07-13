@@ -308,7 +308,7 @@ window[appName].controller('sdn_graph_controller', function ($rootScope, $scope,
         }
         var table_text= "<table >";
         var table_text= "<tr><th colspan='2'>"+k._id+"</th></tr>";
-        table_text = table_text + "<tr><th><i class='fa fa-fw fa-remove' onclick='flow_delete("+k._id+","+k._rev+")' ></i></th><th><a href='#/sdn_edit_flow/"+k._id+"'><i class='fa fa-fw fa-edit' ></i></a></th></tr>";
+        table_text = table_text + "<tr><th><i class='fa fa-fw fa-remove' onclick=flow_delete('"+k._id+"','"+k._rev+"') ></i></th><th><a href='#/sdn_edit_flow/"+k._id+"'><i class='fa fa-fw fa-edit' ></i></a></th></tr>";
         table_text = table_text + "<tr><th>Command</th><td>"+k.data.OFPFlowMod.command+"</td></tr>";
         table_text = table_text + "<tr><th>out_group</th><td>"+k.data.OFPFlowMod.out_group+"</td></tr>";
         table_text = table_text + "<tr><th>out_port</th><td>"+k.data.OFPFlowMod.out_port+"</td></tr>";
