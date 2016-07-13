@@ -29,7 +29,7 @@ def auth():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        login_url = rest_url + "user/_all_docs"
+        #login_url = rest_url + "user/_all_docs"
         test = requests.get("http://localhost:5984/"+config.userdb+"/_design/"+config.user_design+"/_view/"+config.user_view)
         user_data = json.loads(test.text)
         for i in user_data["rows"]:
