@@ -282,6 +282,26 @@ window[appName].controller('sdn_graph_controller', function ($rootScope, $scope,
 
     function get_popuptable(k)
     {
+        if(k.data.OFPFlowMod.command==undefined)
+        {
+           k.data.OFPFlowMod.command="not available";
+        }
+        if(k.data.OFPFlowMod.out_group==undefined)
+        {
+           k.data.OFPFlowMod.out_group="not available";
+        }
+        if(k.data.OFPFlowMod.out_port==undefined)
+        {
+           k.data.OFPFlowMod.out_port="not available";
+        }
+        if(k.data.OFPFlowMod.idle_timeout==undefined)
+        {
+           k.data.OFPFlowMod.idle_timeout="not available";
+        }
+        if(k.data.OFPFlowMod.match.OFPMatch==undefined)
+        {
+           k.data.OFPFlowMod.command={"type":"not available"};
+        }
         var table_text= "<table >";
         var table_text= "<tr><th colspan='2'>k.id</th></tr>";
         table_text = table_text + "<tr><th><i class='fa fa-fw fa-remove' ng-click='flow_delete(k._id,k._rev)' ></i></th><th><i class='fa fa-fw fa-remove' ></i></th></tr>";
